@@ -1,0 +1,21 @@
+{
+  "name": "tst-autocomplete",
+  "version": "1.0.0",
+  "description": "A js module that builds a balanced Ternary Search Tree using the input dataset that provide autocomplete features in logarithmic time. (Olog(N))",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest ./test/"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.2.2"
+  },
+  "keywords": [
+    "algorithm",
+    "ternary search tree",
+    "binary tree",
+    "autocomplete",
+    "typeahead"
+  ]
+}
