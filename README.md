@@ -11,7 +11,7 @@ Import the module onto your project and build the TST by passing an array of wor
 
 
 ```
-const tstAutoComplete = require('tst-autcomplete');
+const tstAutoComplete = require('tst-autocomplete');
 
 // instantiate tst module
 const tst = new tstAutoComplete();

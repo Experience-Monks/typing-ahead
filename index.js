@@ -136,7 +136,7 @@ class TernarySearchTree {
 
     /**
      * Autocomplete
-     * @param {strig} word - a few characters ofprefix or a complete word from input to check against relevant word node in TST
+     * @param {strig} word - a few characters or a complete word from input to check against relevant word node in TST
      */
     search(word, tree) {
         if (typeof word !== 'string' ) {
