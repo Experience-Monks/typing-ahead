@@ -1,41 +1,27 @@
 # Autocomplete Model
 
-This is a framework-agnostic module for generating a data model to perform autocomplete operations in logarithmic time.
+This is a lightweight module for generating a data model to perform autocomplete operations in logarithmic time.
 
-It has a number of methods that let you implement the data model to work with your components.
+It has two methods that let you generate the data model and find all matching suffixes all words.
 
-## Installation
+## Get Started
 
-Import the module onto your project and build the data model by passing an array of words as below:
+1. Import the module onto your project and build the data model by passing an array of words as below
 
-
-```
-const autocompleteModel = require('autocomplete-model');
-
-// instantiate data module
-const ac_model = new autocompleteModel();
+2. Pass the mode and the word's prefixes to model to a `find` to get results
 
 
-// build the data model
-ac_model.addBatch(["an array of words"]);
-
-
-// call the search method from the same instance 
-ac_model.search('autocomp');
-
-OR
-
-// call the search method from the same instance 
-ac_model.search('autocomp', model);
+### Example
 
 ```
+const AUTOCOMPLETE_MODEL = require('autocomplete-model');
+const autocompleteModel = new AUTOCOMPLETE_MODEL();
 
-Alternatively, we could also build the model and save it directly in our app instead of building the model asynchronously on every callback:
-
-`ac_model.buildFile(["an array of words"], './data', 'model.json');`
-
+const myModel = autocompleteModel.generate(words);
+const result = autocompleteModel.find('se', myModel);
+```
 
 ## Test
-More about the test cases could be found inside `./test/index.test.js`
+Everything about the test cases could be found inside `./__test__/index.test.js`
 
 `npm test`

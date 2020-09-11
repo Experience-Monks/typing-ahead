@@ -35,23 +35,6 @@ class AutocompleteModel {
     return currentNode;
   }
 
-  autoComplete(node, word) {
-    if (!node) {
-      return;
-    }
-    if (!word || word.length <= 0) {
-      return this._allSuffix(node);
-    }
-    const firstChar = word[0].toLowerCase();
-    if (firstChar < node.char) {
-      this.autoComplete(node.left, word);
-    } else if (firstChar > node.char) {
-      this.autoComplete(node.right, word);
-    } else {
-      this.autoComplete(node.center, word.slice(1));
-    }
-  }
-
   /**
    * Based on https://www.drdobbs.com/database/ternary-search-trees/184410528?pgno=1,
    * this is the most optimized way to build the model
@@ -94,6 +77,23 @@ class AutocompleteModel {
     };
   }
 
+  autoComplete(node, word) {
+    if (!node) {
+      return;
+    }
+    if (!word || word.length <= 0) {
+      return this._allSuffix(node);
+    }
+    const firstChar = word[0].toLowerCase();
+    if (firstChar < node.char) {
+      this.autoComplete(node.left, word);
+    } else if (firstChar > node.char) {
+      this.autoComplete(node.right, word);
+    } else {
+      this.autoComplete(node.center, word.slice(1));
+    }
+  }
+
   /**
    * Add word to the Ternary Search Tree
    * @param {string} word - word to be added to the tree
@@ -133,7 +133,7 @@ class AutocompleteModel {
   }
 
   /**
-   * Autocomplete
+   * Search
    * @param {strig} word - a few characters or a complete word from input to check against relevant word node in TST
    */
   search(word, tree) {

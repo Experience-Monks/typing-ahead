@@ -22,10 +22,6 @@ describe('Test Data structure functions and performance', () => {
     expect(model.addBatch).toBeDefined();
   });
 
-  it('search method exist', () => {
-    expect(model.search).toBeDefined();
-  });
-
   it('invalid input set should return `null`', () => {
     expect(model.add(123)).toBeNull();
   });
@@ -95,7 +91,7 @@ describe('Generated mode and saved as json file', () => {
   });
 });
 
-describe('Test Autocomplete API', () => {
+describe('Test API', () => {
   it('should generate a balanced model', () => {
     const model = AutocompleteModelAPI.generate(words);
     expect(isBalanced(model)).toBeTruthy();
