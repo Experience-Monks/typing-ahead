@@ -1,8 +1,3 @@
-/**
- * https://js-algorithms.tutorialhorizon.com/
- * Time Complexity: O(NlogN)
- */
-
 function _getHeight(root) {
     if (root === null) { // Base case
         return 0;
@@ -10,7 +5,12 @@ function _getHeight(root) {
     return Math.max(_getHeight(root.left), _getHeight(root.right)) + 1;
 };
 
-isBalanced = (root) => {
+/**
+ * This `isBalanced` function is referencing the source code here https://js-algorithms.tutorialhorizon.com/
+ * Time Complexity: O(NlogN)
+ */
+
+function isBalanced(root) {
     if (root === null) { // Base case
         return true;
     }
@@ -23,6 +23,6 @@ isBalanced = (root) => {
 }
 
 module.exports = {
-    isBalanced
+  isBalanced
 };
 

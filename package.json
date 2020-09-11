@@ -4,7 +4,7 @@
   "description": "A js module that builds a balanced Ternary Search Tree using the input dataset that provide autocomplete features in logarithmic time. (Olog(N))",
   "main": "index.js",
   "scripts": {
-    "test": "jest ./test/"
+    "test": "jest ./__tests__/"
   },
   "author": "",
   "license": "ISC",

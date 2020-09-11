@@ -1,36 +1,26 @@
+const AUTOCOMPLETE_MODEL = require('./model');
+
 /**
- * Print {strings and number} messages in the console
+ * Add words to the data model
+ * @param {string} word - word to be added to the model
  *
- * @param {String | Number} message
  */
-function print(message) {
-  var _message = message !== undefined ? message : '';
-
-  if (!_isString(message) && !_isNumber(message)) {
-    throw new Error('The argument is not a string or a number');
-  }
-
-  console.log(_message);
+function generate(words) {
+  const autocompleteModel = new AUTOCOMPLETE_MODEL();
+  return autocompleteModel.addBatch(words);
 }
 
 /**
- * Verify if the passed value is a String
- *
- * @param {*} value
- * @returns {Boolean}
+ * Get all matching suffix
+ * @param {strig} word - a few characters or a complete word from input to check against relevant word node in the data model
  */
-function _isString(value) {
-  return toString.call(value) == '[object String]';
+function find(word, model) {
+  const autocompleteModel = new AUTOCOMPLETE_MODEL();
+  autocompleteModel.autoComplete(model, word);
+  return autocompleteModel.results;
 }
 
-/**
- * Verify if the passed value is a Number
- *
- * @param {*} value
- * @returns {Boolean}
- */
-function _isNumber(value) {
-  return typeof value === 'number';
-}
-
-module.exports = print;
+module.exports = {
+  generate, 
+  find
+};
