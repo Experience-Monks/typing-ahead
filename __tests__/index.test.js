@@ -1,5 +1,5 @@
-const AutocompleteModel = require('../src/model');
-const AutocompleteModelAPI = require('../src/');
+const DataModel = require('../src/model/');
+const API = require('../src/');
 const { isBalanced } = require('../src/util/');
 const data = require('../data/countries-dataset.min');
 const fs = require('fs');
@@ -11,7 +11,7 @@ describe('Test Data structure functions and performance', () => {
   let model;
 
   beforeEach(() => {
-    model = new AutocompleteModel();
+    model = new DataModel();
   });
 
   it('add method exist', () => {
@@ -37,7 +37,7 @@ describe('Test Data structure functions and performance', () => {
     expect(isBalanced(model.root)).toBeTruthy();
   });
 
-  it('model built with sorted input set and with word inserted in linear manner should be unbalanced', () => {
+  it('model built with sorted input set with word inserted in linear manner should be unbalanced', () => {
     model.empty();
     model.add('algorithm');
     model.add('app');
@@ -54,33 +54,33 @@ describe('Test Data structure functions and performance', () => {
   it('should get expected result of `se`', () => {
     model.empty();
     model.addBatch(words);
-    model.search('se');
+    model.search(model.get(), 'se');
     expect(model.results).toEqual(expect.arrayContaining(words_3));
   });
 
   it('should get expected result of `a`', () => {
     model.empty();
     model.addBatch(words_2);
-    model.search('A');
+    model.search(model.get(), 'A');
     expect(model.results).toEqual(expect.arrayContaining(['app', 'all', 'apple', 'algorithm']));
   });
 
   it('should get a list of countries matching the prefix - c', () => {
     model.empty();
     model.addBatch(data.map((country) => country.name));
-    model.search('sin');
+    model.search(model.get(), 'sin');
     expect(model.results).toEqual(expect.arrayContaining(['singapore']));
   });
 });
 
 describe('Generated mode and saved as json file', () => {
   it('should generate a json file containing model and return the matching prefix of - c', async () => {
-    model = new AutocompleteModel();
+    model = new DataModel();
     model.empty();
     const testFile = 'model.temp.json';
     const waitForFileToBeCreated = new Promise((resolve) =>
       fs.writeFile(`./__tests__/${testFile}`, JSON.stringify(model.build(data.map((country) => country.name))), () => {
-        model.search('c', require(`./${testFile}`));
+        model.search(require(`./${testFile}`, 'c'));
         resolve(true);
       })
     );
@@ -93,13 +93,13 @@ describe('Generated mode and saved as json file', () => {
 
 describe('Test API', () => {
   it('should generate a balanced model', () => {
-    const model = AutocompleteModelAPI.generate(words);
+    const model = API.generate(words);
     expect(isBalanced(model)).toBeTruthy();
   });
 
   it('should get expected result of `se` from', () => {
-    const model = AutocompleteModelAPI.generate(words);
-    const result = AutocompleteModelAPI.find('se', model);
+    const model = API.generate(words);
+    const result = API.find('se', model);
     expect(result).toEqual(expect.arrayContaining(words_3));
   });
 });
