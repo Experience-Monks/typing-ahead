@@ -1,4 +1,4 @@
-class AutocompleteModel {
+class DataModel {
   constructor() {
     this.root = null;
     this.word = null;
@@ -77,26 +77,13 @@ class AutocompleteModel {
     };
   }
 
-  autoComplete(node, word) {
-    if (!node) {
-      return;
-    }
-    if (!word || word.length <= 0) {
-      return this._allSuffix(node);
-    }
-    const firstChar = word[0].toLowerCase();
-    if (firstChar < node.char) {
-      this.autoComplete(node.left, word);
-    } else if (firstChar > node.char) {
-      this.autoComplete(node.right, word);
-    } else {
-      this.autoComplete(node.center, word.slice(1));
-    }
+  get() {
+    return this.root;
   }
 
   /**
-   * Add word to the Ternary Search Tree
-   * @param {string} word - word to be added to the tree
+   * Add word to the model
+   * @param {string} word - word to be added to the model
    * @param {string} data - additional data that associate with given word
    */
   add(word, data) {
@@ -109,7 +96,7 @@ class AutocompleteModel {
 
   /**
    * Add a batch of words to model
-   * @param {Array<string>} words - a list words to be added to the TST
+   * @param {Array<string>} words - a list words to be added to the model
    */
   addBatch(words) {
     words.sort();
@@ -117,11 +104,15 @@ class AutocompleteModel {
     return this.root;
   }
 
+  /**
+   * Output the model
+   * @param {Array<string>} words - a list words to be added to the model
+   */
   build(words) {
     this.addBatch(words);
-    const tst_model = this.root;
+    const model = this.root;
     this.root = null;
-    return tst_model;
+    return model;
   }
 
   /**
@@ -133,19 +124,26 @@ class AutocompleteModel {
   }
 
   /**
-   * Search
-   * @param {strig} word - a few characters or a complete word from input to check against relevant word node in TST
+   * The main method for user to get suggested words
+   * @param {Object} node
+   * @param {string} word
    */
-  search(word, tree) {
-    if (typeof word !== 'string') {
-      return 1;
+  search(node, word) {
+    if (!node) {
+      return;
     }
-    if (tree) {
-      this.root = tree;
+    if (!word || word.length <= 0) {
+      return this._allSuffix(node);
     }
-    this.results = [];
-    this.autoComplete(this.root, word);
+    const firstChar = word[0].toLowerCase();
+    if (firstChar < node.char) {
+      this.search(node.left, word);
+    } else if (firstChar > node.char) {
+      this.search(node.right, word);
+    } else {
+      this.search(node.center, word.slice(1));
+    }
   }
 }
 
-module.exports = AutocompleteModel;
+module.exports = DataModel;
