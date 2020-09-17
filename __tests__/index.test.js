@@ -73,7 +73,7 @@ describe('Test Data structure functions and performance', () => {
   });
 });
 
-describe('Generated mode and saved as json file', () => {
+describe('Generated model and saved as json file', () => {
   it('should generate a json file containing model and return the matching prefix of - c', async () => {
     model = new DataModel();
     model.empty();
