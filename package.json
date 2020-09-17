@@ -1,7 +1,7 @@
 {
-  "name": "tst-autocomplete",
+  "name": "typing-ahead",
   "version": "1.0.0",
-  "description": "A js module that builds a balanced Ternary Search Tree using the input dataset that provide autocomplete features in logarithmic time. (Olog(N))",
+  "description":"A lightweight module for generating a data model to perform typeahead or autocomplete task in logarithmic time.",
   "main": "index.js",
   "scripts": {
     "test": "jest ./__tests__/"
@@ -12,10 +12,9 @@
     "jest": "^26.2.2"
   },
   "keywords": [
-    "algorithm",
-    "ternary search tree",
-    "binary tree",
     "autocomplete",
-    "typeahead"
+    "typeahead",
+    "modular",
+    "lightweight"
   ]
 }
