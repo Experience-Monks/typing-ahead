@@ -9,7 +9,7 @@ This is a lightweight module for generating a data model to perform typeahead or
 It has two public methods:
 
 - generate: Lets you generate a data model consists of words
-- find: Using the pre-generated data model, it finds the closest match of the input word
+- find: Finds the closest match of the input word within the provided model
 
 ## Get Started
 
@@ -23,7 +23,7 @@ It has two public methods:
 const typingAhead = require('typing-ahead');
 
 const myModel = typingAhead.generate(words);
-const result = typingAhead.find('typing', myModel);
+const results = typingAhead.find('typing', myModel);
 ```
 
 ## Unit Test
