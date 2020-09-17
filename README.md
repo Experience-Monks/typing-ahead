@@ -26,7 +26,7 @@ const myModel = typingAhead.generate(words);
 const result = typingAhead.find('typing', myModel);
 ```
 
-## Test
+## Unit Test
 There are some test cases provided in  `./__test__/index.test.js` to ensure that the data model is built correctly.
 
 `npm test`
