@@ -1,7 +1,7 @@
 const DataModel = require('../src/model/');
 const API = require('../src/');
 const { isBalanced } = require('../src/util/');
-const data = require('../data/countries-dataset.min');
+const data = require('../src/data/countries-dataset.min');
 const fs = require('fs');
 const words = ['search', 'sea', 'sear', 'app', 'all', 'apple', 'algorithm'];
 const words_2 = ['search more', 'ocean and sky', 'sear', 'app', 'all', 'apple', 'algorithm'];

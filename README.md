@@ -16,11 +16,10 @@ It has two public methods:
 ### Example
 
 ```
-const AUTOCOMPLETE_MODEL = require('autocomplete-model');
-const autocompleteModel = new AUTOCOMPLETE_MODEL();
+const typingAhead = require('typing-ahead');
 
-const myModel = autocompleteModel.generate(words);
-const result = autocompleteModel.find('se', myModel);
+const myModel = typingAhead.generate(words);
+const result = typingAhead.find('typing', myModel);
 ```
 
 ## Test
