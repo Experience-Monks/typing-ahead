@@ -1,4 +1,8 @@
-# Typing ahead
+![Logo](/docs/typing-ahead-logo.jpg)
+
+> Light-weight library to build data model for typeahead feature
+
+# typing-ahead
 
 This is a lightweight module for generating a data model to perform typeahead or autocomplete task in logarithmic time.
 
