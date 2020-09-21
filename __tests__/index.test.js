@@ -58,11 +58,11 @@ describe('Test Data structure functions and performance', () => {
     expect(model.results).toEqual(expect.arrayContaining(words_3));
   });
 
-  it('should get expected result of `algorithm`', () => {
+  it('should get expected result of `a`', () => {
     model.empty();
     model.addBatch(words_2);
-    model.search(model.get(), 'algorithm');
-    expect(model.results).toEqual(expect.arrayContaining(['algorithm']));
+    model.search(model.get(), 'A');
+    expect(model.results).toEqual(expect.arrayContaining(['app', 'all', 'apple', 'algorithm']));
   });
 
   it('should get expected result of `[]`', () => {
@@ -87,7 +87,7 @@ describe('Generated model and saved as json file', () => {
     const testFile = 'model.temp.json';
     const waitForFileToBeCreated = new Promise((resolve) =>
       fs.writeFile(`./__tests__/${testFile}`, JSON.stringify(model.build(data.map((country) => country.name))), () => {
-        model.search(require(`./${testFile}`, 'c'));
+        model.search(require(`./${testFile}`), 'c');
         resolve(true);
       })
     );

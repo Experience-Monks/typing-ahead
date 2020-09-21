@@ -18,6 +18,10 @@ class DataModel {
       this.root = currentNode;
     }
 
+    if (currentNode.char === '0') {
+      currentNode.char = newChar;
+    }
+
     if (newChar < currentNode.char) {
       currentNode.left = this._addNode(currentNode.left, word);
     } else if (newChar > currentNode.char) {
@@ -61,7 +65,7 @@ class DataModel {
       return;
     }
     if (node.isEndOfWord) {
-      return this.results.push(...node.word);
+      this.results.push(...node.word);
     }
     this._allSuffix(node.left);
     this._allSuffix(node.right);
@@ -134,8 +138,9 @@ class DataModel {
     if (!node) {
       return;
     }
-    if (!word || word.length <= 0) {
-      return isEndOfInput ? this._allSuffix(node) : [];
+    if (isEndOfInput && (!word || word.length <= 0)) {
+      this._allSuffix(node);
+      return this.results;
     }
     const firstChar = word[0].toLowerCase();
     if (firstChar < node.char) {
