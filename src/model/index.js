@@ -26,8 +26,10 @@ class DataModel {
       if (word.length > 1) {
         currentNode.center = this._addNode(currentNode.center, word.slice(1));
       } else {
-        currentNode.isEndOfWord = true;
-        currentNode.word.push(this.word);
+        const leaftNode = currentNode.center || this._createNode('0');
+        leaftNode.isEndOfWord = true;
+        leaftNode.word.push(this.word);
+        currentNode.center = leaftNode;
         this.entries += 1;
       }
     }
@@ -59,7 +61,7 @@ class DataModel {
       return;
     }
     if (node.isEndOfWord) {
-      this.results.push(...node.word);
+      return this.results.push(...node.word);
     }
     this._allSuffix(node.left);
     this._allSuffix(node.right);
@@ -128,20 +130,20 @@ class DataModel {
    * @param {Object} node
    * @param {string} word
    */
-  search(node, word) {
+  search(node, word, isEndOfInput) {
     if (!node) {
       return;
     }
     if (!word || word.length <= 0) {
-      return this._allSuffix(node);
+      return isEndOfInput ? this._allSuffix(node) : [];
     }
     const firstChar = word[0].toLowerCase();
     if (firstChar < node.char) {
-      this.search(node.left, word);
+      this.search(node.left, word, false);
     } else if (firstChar > node.char) {
-      this.search(node.right, word);
+      this.search(node.right, word, false);
     } else {
-      this.search(node.center, word.slice(1));
+      this.search(node.center, word.slice(1), true);
     }
   }
 }

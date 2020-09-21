@@ -58,11 +58,18 @@ describe('Test Data structure functions and performance', () => {
     expect(model.results).toEqual(expect.arrayContaining(words_3));
   });
 
-  it('should get expected result of `a`', () => {
+  it('should get expected result of `algorithm`', () => {
     model.empty();
     model.addBatch(words_2);
-    model.search(model.get(), 'A');
-    expect(model.results).toEqual(expect.arrayContaining(['app', 'all', 'apple', 'algorithm']));
+    model.search(model.get(), 'algorithm');
+    expect(model.results).toEqual(expect.arrayContaining(['algorithm']));
+  });
+
+  it('should get expected result of `[]`', () => {
+    model.empty();
+    model.addBatch(words_2);
+    model.search(model.get(), 'algoriths');
+    expect(model.results).toEqual([]);
   });
 
   it('should get a list of countries matching the prefix - c', () => {

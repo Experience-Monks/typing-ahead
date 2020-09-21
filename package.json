@@ -1,7 +1,7 @@
 {
   "name": "typing-ahead",
   "version": "1.0.0",
-  "description":"A lightweight module for generating a data model to perform typeahead or autocomplete task in logarithmic time.",
+  "description": "A lightweight module for generating a data model to perform typeahead or autocomplete task in logarithmic time.",
   "main": "index.js",
   "scripts": {
     "test": "jest ./__tests__/"
