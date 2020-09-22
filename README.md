@@ -1,6 +1,6 @@
 ![Logo](/docs/typing-ahead-logo.jpg)
 
-> A light-weight library to build data model for typeahead feature
+> A lightweight library to build data model for typeahead feature
 
 # typing-ahead
 
