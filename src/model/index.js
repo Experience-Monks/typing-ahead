@@ -41,10 +41,6 @@ class DataModel {
     return currentNode;
   }
 
-  /**
-   * Based on https://www.drdobbs.com/database/ternary-search-trees/184410528?pgno=1,
-   * this is the most optimized way to build the model
-   */
   _addBatchNodesRecursively(words, start, end) {
     if (end === start) {
       return;
@@ -79,7 +75,7 @@ class DataModel {
       left: null,
       right: null,
       word: [],
-      isEndOfWord: false,
+      isEndOfWord: false
     };
   }
 
@@ -90,14 +86,13 @@ class DataModel {
   /**
    * Add word to the model
    * @param {string} word - word to be added to the model
-   * @param {string} data - additional data that associate with given word
    */
-  add(word, data) {
+  add(word) {
     if (typeof word !== 'string' || word.length <= 0) {
       return null;
     }
     this.word = word;
-    this._addNode(this.root, word, data);
+    this._addNode(this.root, word);
   }
 
   /**

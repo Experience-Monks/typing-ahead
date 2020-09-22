@@ -19,6 +19,6 @@ function find(word, object) {
 }
 
 module.exports = {
-  generate, 
+  generate,
   find
 };
