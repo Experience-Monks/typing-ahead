@@ -26,6 +26,10 @@ const myModel = typingAhead.generate(words);
 const results = typingAhead.find('typing', myModel);
 ```
 
+This example is made with [Jam3 NextJS Generator](https://github.com/Jam3/nyg-nextjs)
+![Example](/docs/typing-ahead-example.gif)
+
+
 ## Unit Test
 There are some test cases provided in  `./__test__/index.test.js` to ensure that the data model is built correctly.
 
