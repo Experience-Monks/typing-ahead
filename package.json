@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
     "jest": "^26.2.2"
   },
   "keywords": [
