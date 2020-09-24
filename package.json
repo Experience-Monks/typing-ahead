@@ -20,6 +20,14 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jam3/typing-ahead.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jam3/typing-ahead/issues"
+  },
+  "homepage": "https://github.com/Jam3/typing-ahead#readme",
   "keywords": [
     "autocomplete",
     "typeahead",
