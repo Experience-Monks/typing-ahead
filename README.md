@@ -1,6 +1,9 @@
 ![Logo](/docs/typing-ahead-logo.jpg)
 
 > A lightweight library to build data model for typeahead feature
+[![Known Vulnerabilities](https://snyk.io/test/github/Jam3/typing-ahead/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Jam3/typing-ahead?targetFile=package.json) [![GitHub license](https://img.shields.io/github/license/Jam3/typing-ahead)](https://github.com/Jam3/typing-ahead/blob/master/LICENSE)
+
+[![NPM](https://nodei.co/npm/typing-ahead.png)](https://nodei.co/npm/typing-ahead/)
 
 # typing-ahead
 
