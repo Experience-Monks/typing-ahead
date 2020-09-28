@@ -22,8 +22,8 @@ It has two public methods:
 ```
 const typingAhead = require('typing-ahead');
 
-const myModel = typingAhead.generate(words);
-const results = typingAhead.find('typing', myModel);
+const myModel = typingAhead.generate(['typingahead', 'autocomplete']);
+const results = typingAhead.find('typing', myModel); // result ['typingahead']
 ```
 
 This example is made with [Jam3 NextJS Generator](https://github.com/Jam3/nyg-nextjs)
